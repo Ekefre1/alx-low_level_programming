@@ -3,14 +3,10 @@
 /**
  * main - Entry point of the program
  *
- * Description: This function prints the text "with proper grammar,
- * but the outcome is a piece of art" and returns 0.
- *
- * Return: Always 0 (Success)
+ * Return: 0 on success
  */
 int main(void)
 {
-	printf("with proper grammar, but the outcome is a piece of art"\n);
+	printf("with proper grammar, but the outcome is a piece of art,\n");
 	return (0);
 }
-
