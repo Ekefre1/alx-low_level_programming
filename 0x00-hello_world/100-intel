@@ -1,0 +1,29 @@
+import os
+
+
+def generate_assembly_code():
+    # Get the C file name from the environment variable
+    c_file = os.environ.get('CFILE')
+
+    # Check if the C file name is provided
+    if c_file is None:
+        print("Error: C file name not provided.")
+        exit(1)
+
+    # Check if the C file exists
+    if not os.path.isfile(c_file):
+        print(f"Error: File '{c_file}' does not exist.")
+        exit(1)
+
+    # Create the output file name by replacing the .c extension with .s
+    output_file = os.path.splitext(c_file)[0] + '.s'
+
+    # Run the gcc compiler to generate the assembly code
+    command = f"gcc -S -masm=intel {c_file} -o {output_file}"
+    os.system(command)
+
+    print(f"Assembly code generated and saved to '{output_file}'.")
+
+
+if __name__ == '__main__':
+    generate_assembly_code()
